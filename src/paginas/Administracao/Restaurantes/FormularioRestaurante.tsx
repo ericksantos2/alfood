@@ -1,4 +1,9 @@
-import { Box, Button, TextField, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  TextField,
+  Typography,
+} from "@mui/material";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import http from "../../../http";
@@ -10,9 +15,7 @@ const FormularioRestaurante = () => {
   useEffect(() => {
     if (parametros.id) {
       http
-        .get<IRestaurante>(
-          `restaurantes/${parametros.id}/`
-        )
+        .get<IRestaurante>(`restaurantes/${parametros.id}/`)
         .then((resposta) => setNomeRestaurante(resposta.data.nome));
     }
   }, [parametros]);
@@ -43,12 +46,17 @@ const FormularioRestaurante = () => {
 
   return (
     <Box
-      sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        flexGrow: 1,
+      }}
     >
       <Typography component="h1" variant="h6">
         Formulario de Restaurantes
       </Typography>
-      <Box component="form" onSubmit={aoSubmeterForm}>
+      <Box component="form" sx={{ width: "100%" }} onSubmit={aoSubmeterForm}>
         <TextField
           value={nomeRestaurante}
           onChange={(evento) => setNomeRestaurante(evento.target.value)}
