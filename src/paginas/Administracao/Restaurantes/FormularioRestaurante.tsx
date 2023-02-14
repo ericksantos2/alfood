@@ -60,7 +60,7 @@ const FormularioRestaurante = () => {
         <TextField
           value={nomeRestaurante}
           onChange={(evento) => setNomeRestaurante(evento.target.value)}
-          label="Nome de Restaurante"
+          label="Nome do Restaurante"
           variant="standard"
           fullWidth
           required
